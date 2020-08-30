@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card p-4">
+    <div class="row mb-2">
+        <div class="col">
+            <h3 class="text-info">Informações do report</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <p class="text-dark">
+                <strong class="font-weight-bold">Purchase name:</strong>
+                <%= @report.purchaser_name %>
+            </p>
+            <p class="text-dark">
+                <strong class="font-weight-bold">Description:</strong>
+                <%= @report.item_description %>
+            </p>
+            <p class="text-dark">
+                <strong class="font-weight-bold">Price:</strong>
+                <%= @report.item_description %>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <p class="text-dark">
+                <strong class="font-weight-bold">Count:</strong>
+                <%= @report.purchase_count %>
+            </p>
+            <p class="text-dark">
+                <strong class="font-weight-bold">Address:</strong>
+                <%= @report.merchant_address %>
+            </p>
+            <p class="text-dark">
+                <strong class="font-weight-bold">Merchant name:</strong>
+                <%= @report.merchant_name %>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row mb-4">
+    <div class="col">
+        <a class="btn btn-warning" href="<%= edit_report_path(@report) %>"><i class="fa fa-edit mr-2"></i>Editar</a>
+        <%= link_to @report, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger ml-2" do %>
+        <i class="fa fa-trash mr-2"></i>Remover
+        <% end %>
+    </div>
+</div>

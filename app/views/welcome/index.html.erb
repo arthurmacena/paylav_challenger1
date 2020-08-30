@@ -1,0 +1,10 @@
+<center>
+<h1>Bem-vindo a paylav</h1>
+<h5>Aqui fazemos importações de dados, para registros de ocorrências</h5>
+</br>
+<%unless user_signed_in?%>
+    <p>Para fazer suas importações faça login ou cadastre-se.</p>
+<% else %>
+    <p>Para fazer suas importações  <%=link_to "clique aqui", reports_path%>.</p>
+<% end %>
+</center

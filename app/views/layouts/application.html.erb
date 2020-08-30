@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paylav</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href=<%=welcome_index_path%>>Paylav</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href=<%=reports_path%>>Reports <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <%if user_signed_in?%>
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-nav">
+              <form class="form-inline">
+                <%=link_to "Sign out", destroy_user_session_path, class:"btn btn-outline-dark my-2 my-sm-0"%>
+              </form>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav ml-auto">
+            <li class="navbar-nav">
+              <form class="form-inline">
+                <%=link_to "Login", new_user_session_path, class:"btn btn-outline-dark my-2 my-sm-0"%>
+                <%=link_to "Sign Up", new_user_registration_path, class:"btn btn-outline-success my-2 my-sm-0"%>  
+              </form>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="page-container">
+      <div id="content-wrap">
+          <%= yield %>
+      </div>
+      <footer class='bg-white shadow-lg'>
+        <div class="container-fluid p-5">
+          <div>
+            <nav class="nav flex-column footer-nav mb-2">
+              <h5>Mais informações</h5>
+              <a>Sobre a empresa</a>
+            </nav>
+          </div>
+          <p><%= Date.current.year %> &copy Paylav</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
